@@ -1,4 +1,4 @@
-# LSH (C Shell)
+# GSH (C Shell)
 
 A minimal POSIX command-line shell written in C. It implements a read-parse-execute loop capable of running built-in commands and launching external programs via POSIX process control (`fork`, `execvp`, and `waitpid`).
 
@@ -17,7 +17,7 @@ A minimal POSIX command-line shell written in C. It implements a read-parse-exec
 
 ```sh
 make
-./build/lsh
+./build/gsh
 ```
 
 To remove build artifacts:
@@ -29,6 +29,6 @@ make clean
 ### Compiling Directly
 
 ```sh
-cc -Wall -Wextra -Iinclude src/*.c -o lsh
-./lsh
+cc -Wall -Wextra -Iinclude src/*.c -o gsh
+./gsh
 ```

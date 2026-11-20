@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
-#include "lsh.h"
+#include "gsh.h"
 
 char *builtin_str[] = {
   "cd",
@@ -10,38 +10,38 @@ char *builtin_str[] = {
 };
 
 int (*builtin_func[])(char **) = {
-  &lsh_cd,
-  &lsh_help,
-  &lsh_exit
+  &gsh_cd,
+  &gsh_help,
+  &gsh_exit
 };
 
-int lsh_num_builtins(void)
+int gsh_num_builtins(void)
 {
   return sizeof(builtin_str) / sizeof(char *);
 }
 
-int lsh_cd(char **args)
+int gsh_cd(char **args)
 {
   if (args[1] == NULL) {
-    fprintf(stderr, "lsh: expected argument to \"cd\"\n");
+    fprintf(stderr, "gsh: expected argument to \"cd\"\n");
   } else {
     if (chdir(args[1]) != 0) {
-      perror("lsh");
+      perror("gsh");
     }
   }
   return 1;
 }
 
-int lsh_help(char **args)
+int gsh_help(char **args)
 {
   int i;
   (void)args;
 
-  printf("gabby's lsh!!!!!!!\n");
+  printf("gabby's gsh!!!!!!!\n");
   printf("Type program names and arguments, and hit enter.\n");
   printf("The following are built in:\n");
 
-  for (i = 0; i < lsh_num_builtins(); i++) {
+  for (i = 0; i < gsh_num_builtins(); i++) {
     printf("  %s\n", builtin_str[i]);
   }
 
@@ -49,7 +49,7 @@ int lsh_help(char **args)
   return 1;
 }
 
-int lsh_exit(char **args)
+int gsh_exit(char **args)
 {
   (void)args;
   return 0;

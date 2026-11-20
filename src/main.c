@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "lsh.h"
+#include "gsh.h"
 
-void lsh_loop(void)
+void gsh_loop(void)
 {
   char *line;
   char **args;
@@ -11,9 +11,9 @@ void lsh_loop(void)
 
   do {
     printf("> ");
-    line = lsh_read_line();
-    args = lsh_split_line(line);
-    status = lsh_execute(args);
+    line = gsh_read_line();
+    args = gsh_split_line(line);
+    status = gsh_execute(args);
 
     free(line);
     free(args);
@@ -28,7 +28,7 @@ int main(int argc, char **argv)
   // Load config files, if any.
 
   // Run command loop.
-  lsh_loop();
+  gsh_loop();
 
   // Perform any shutdown/cleanup.
 

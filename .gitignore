@@ -31,7 +31,7 @@ id_ed25519*
 build/
 bin/
 obj/
-/lsh
+/gsh
 *.o
 *.obj
 *.out

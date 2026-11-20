@@ -4,9 +4,9 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
-#include "lsh.h"
+#include "gsh.h"
 
-int lsh_launch(char **args)
+int gsh_launch(char **args)
 {
   pid_t pid, wpid;
   int status;
@@ -15,12 +15,12 @@ int lsh_launch(char **args)
   if (pid == 0) {
     // Child process
     if (execvp(args[0], args) == -1) {
-      perror("lsh");
+      perror("gsh");
     }
     exit(EXIT_FAILURE);
   } else if (pid < 0) {
     // Error forking
-    perror("lsh");
+    perror("gsh");
   } else {
     // Parent process
     do {
@@ -32,7 +32,7 @@ int lsh_launch(char **args)
   return 1;
 }
 
-int lsh_execute(char **args)
+int gsh_execute(char **args)
 {
   int i;
 
@@ -41,11 +41,11 @@ int lsh_execute(char **args)
     return 1;
   }
 
-  for (i = 0; i < lsh_num_builtins(); i++) {
+  for (i = 0; i < gsh_num_builtins(); i++) {
     if (strcmp(args[0], builtin_str[i]) == 0) {
       return (*builtin_func[i])(args);
     }
   }
 
-  return lsh_launch(args);
+  return gsh_launch(args);
 }
