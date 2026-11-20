@@ -1,0 +1,58 @@
+# Security / sensitive files
+.env
+.env.*
+*.env
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+*.csr
+*.secret
+secrets.*
+*credentials*
+id_rsa*
+id_ed25519*
+
+# macOS system and hidden metadata files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+.TemporaryItems
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Build outputs and compiled artifacts
+build/
+bin/
+obj/
+/lsh
+*.o
+*.obj
+*.out
+*.exe
+*.a
+*.so
+*.dylib
+*.d
+*.dSYM/
+core
+core.*
+
+# Editor and IDE configuration (local machine paths / preferences)
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+compile_commands.json
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
